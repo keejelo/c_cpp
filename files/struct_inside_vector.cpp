@@ -47,7 +47,7 @@ int main()
     //------------------------------------------------------------------------------------------
 
     // ** Create struct that holds two integers and a string (char array)
-    struct MyList
+    struct MyItem
     {
         int n1 = 0;
         int n2 = 0;
@@ -55,7 +55,7 @@ int main()
     };
 
     // ** Create a vector that holds the struct
-    std::vector<MyList> vMyList;
+    std::vector<MyItem> vMyList;
 
     // ** Insert values into vector
     vMyList.push_back({ 2, 5, "hello" });
