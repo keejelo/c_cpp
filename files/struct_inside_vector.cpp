@@ -25,7 +25,7 @@ int main()
     // ** Output values
     printf("%d\n", vec[0].arr[0]);
     printf("%d\n", vec[0].arr[1]);
-    printf("%d\n", vec[0].arr[2]);
+    printf("%d\n\n", vec[0].arr[2]);
 
     // ..or set them one by one
     vec[0].arr[0] = 9;
@@ -35,7 +35,7 @@ int main()
     // ** Output values
     printf("%d\n", vec[0].arr[0]);
     printf("%d\n", vec[0].arr[1]);
-    printf("%d\n", vec[0].arr[2]);
+    printf("%d\n\n", vec[0].arr[2]);
 
 
 
@@ -61,7 +61,7 @@ int main()
     // ** Output values
     printf("%d\n", vMyList[0].n1);
     printf("%d\n", vMyList[0].n2);
-    printf("%s\n", vMyList[0].s1);
+    printf("%s\n\n", vMyList[0].s1);
 
     // ..or set them one by one
     vMyList[0].n1 = 156;
