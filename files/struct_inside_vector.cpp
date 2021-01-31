@@ -57,13 +57,11 @@ int main()
     // ** Create a vector that holds the struct
     std::vector<MyItem> vMyList;
 
-    // ** Insert values into vector
+    // ** Insert one "MyItem" with values and put it into vector
     vMyList.push_back({ 2, 5, "hello" });
 
     // ** Output values
-    printf("%d\n", vMyList[0].n1);
-    printf("%d\n", vMyList[0].n2);
-    printf("%s\n\n", vMyList[0].s1);
+    printf("%d, %d, %s\n", vMyList[0].n1, vMyList[0].n2, vMyList[0].s1);
 
     // ..change them one by one
     vMyList[0].n1 = 156;
@@ -71,10 +69,7 @@ int main()
     strcpy_s(vMyList[0].s1, "goodbye");
 
     // ** Output values
-    printf("%d\n", vMyList[0].n1);
-    printf("%d\n", vMyList[0].n2);
-    printf("%s\n", vMyList[0].s1);
-
+    printf("%d, %d, %s\n", vMyList[0].n1, vMyList[0].n2, vMyList[0].s1);
 
     // ** Pause before exit
     getchar();
