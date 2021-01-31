@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------------------
-// lists_inside_vector.cpp
+// structs_inside_vector.cpp
 //------------------------------------------------------------------------------------------
 // ** Example of how to use and integer array inside a vector
 //    Great for lists with items and subitems etc.
