@@ -9,6 +9,7 @@
 
 int main()
 {
+
     //------------------------------------------------------------------------------------------
     // ** A struct that contains an integer array
     //------------------------------------------------------------------------------------------
@@ -30,7 +31,7 @@ int main()
     printf("%d\n", vec[0].arr[1]);
     printf("%d\n\n", vec[0].arr[2]);
 
-    // ..or set them one by one
+    // ..change them one by one
     vec[0].arr[0] = 9;
     vec[0].arr[1] = 4;
     vec[0].arr[2] = 7;
@@ -66,7 +67,7 @@ int main()
     printf("%d\n", vMyList[0].n2);
     printf("%s\n\n", vMyList[0].s1);
 
-    // ..or set them one by one
+    // ..change them one by one
     vMyList[0].n1 = 156;
     vMyList[0].n2 = 63;
     strcpy_s(vMyList[0].s1, "goodbye");
