@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------------------
-// struct_inside_vector.cpp
+// ** struct_inside_vector.cpp
 //------------------------------------------------------------------------------------------
 // ** Example of how to use struct inside a vector
 //    Great for lists with items and subitems etc.
