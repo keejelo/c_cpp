@@ -5,7 +5,7 @@
 //----------------------------------------------------------------
 // ** Trim leading and trailing white space from string
 //----------------------------------------------------------------
-void Trim(char *s)
+char *Trim(char *s)
 {
     int i,j;
 
@@ -25,6 +25,8 @@ void Trim(char *s)
         }
     }
     s[j+1]='\0';
+    
+    return s;
 };
 //----------------------------------------------------------------
 // ** END: Trim leading and trailing white space from string
