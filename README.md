@@ -1,2 +1,1 @@
-# C/C++ snippets and examples
-
+ C/C++ snippets and examples
