@@ -6,12 +6,9 @@
 //--------------------------------------------------------------------------------
 char *ToLower(char *s)
 {
-    for (int i = 0; s[i] != '\0'; i++)
+    for (size_t i = 0; i < strlen(s); i++)
     {
-        if (s[i] >= 'A' && s[i] <= 'Z')
-        {
-            s[i] = s[i] + 32;
-        }
+        s[i] = tolower(s[i]);
     }
     return s;
 };
@@ -25,12 +22,9 @@ char *ToLower(char *s)
 //--------------------------------------------------------------------------------
 char *ToUpper(char *s)
 {
-    for (int i = 0; s[i] != '\0'; i++)
+    for (size_t i = 0; i < strlen(s); i++)
     {
-        if (s[i] >= 'a' && s[i] <= 'z')
-        {
-            s[i] = s[i] - 32;
-        }
+        s[i] = toupper(s[i]);
     }
     return s;
 };
