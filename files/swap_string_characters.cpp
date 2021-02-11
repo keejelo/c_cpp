@@ -48,7 +48,7 @@ bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 255)
         return false;
     }
 
-    // ** Swap each character pair to get set the correct "byte" value
+    // ** Swap each character in a pair with eachother
     for (size_t i = 0; i < strInLen; i += 2)
     {
         strOut[i] = strIn[i + 1];
