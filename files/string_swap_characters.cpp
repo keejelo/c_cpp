@@ -30,7 +30,7 @@ bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 255)
 
 
 //--------------------------------------------------------------------------------
-// ** Swap each pair character
+// ** Swap each character pair with eachother (converts "ab" into "ba")
 //--------------------------------------------------------------------------------
 bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 255)
 {
@@ -48,7 +48,7 @@ bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 255)
         return false;
     }
 
-    // ** Swap each character pair to get set the correct "byte" value
+    // ** Swap each character pair with eachother (converts "ab" into "ba")
     for (size_t i = 0; i < strInLen; i += 2)
     {
         strOut[i] = strIn[i + 1];
@@ -58,5 +58,5 @@ bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 255)
     return true;
 };
 //--------------------------------------------------------------------------------
-// ** END: Swap each pair character
+// ** END: Swap each character pair
 //--------------------------------------------------------------------------------
