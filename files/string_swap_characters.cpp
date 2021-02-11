@@ -1,7 +1,44 @@
 //--------------------------------------------------------------------------------
+// Swapping whole strings and string characters.
+//
+// Author: keejelo
+//--------------------------------------------------------------------------------
+/*
+
+// One interesting way to use these two functions is to swap "endianess" of a large hexadecimal string
+
+// Say we have this BIG-endian hex-string: 0xCAFEBABE
+// which in LITTLE-endian becomes: 0xBEBAFECA
+
+// To convert it, start by getting rid of "0x" somehow if the string contains it,
+// then you can do this:
+
+char myHexStr[] = "CAFEBABE"; // or any other hex value that is in a string type (if you have an integer you can try casting it into a string with sprintf)
+
+// ** Create an output string that is big enough to hold our input string
+char str1[255] = { 0 };
+
+// ** Reverse all characters (make string mirrored)
+ReverseString(myHexStr, str1);
+
+
+// ** Create another output string
+char str2[255] = { 0 };
+
+// ** Now swap the "endianess"
+SwapStringPair(str1, str2);
+
+// ** Output string, should output: BEBAFECA
+printf("%s", str2);
+
+*/
+
+
+
+//--------------------------------------------------------------------------------
 // ** Swap characters one-by-one (first-to-last and so on) (mirrored)
 //--------------------------------------------------------------------------------
-bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 255)
+bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 256)
 {
     size_t strInLen = strlen(strIn);
 
@@ -32,7 +69,7 @@ bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 255)
 //--------------------------------------------------------------------------------
 // ** Swap each character pair with eachother (converts "ab" into "ba")
 //--------------------------------------------------------------------------------
-bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 255)
+bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 256)
 {
     size_t strInLen = strlen(strIn);
 
