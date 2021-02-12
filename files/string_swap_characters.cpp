@@ -17,7 +17,7 @@ char myHexStr[] = "CAFEBABE"; // or any other hex value that is in a string type
 
 
 // Create an output string that is big enough to hold our input string
-char outstr[10] = { 0 };
+char outstr[9] = { 0 };
 
 // Now swap endianness
 SwapEndianHexString(myHexStr, outstr);
