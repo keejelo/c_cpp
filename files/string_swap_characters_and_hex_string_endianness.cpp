@@ -98,10 +98,10 @@ bool SwapEndianHexString(char *strIn, char *strOut)
 {
     char strTemp[256] = { 0 };
 
-    size_t len = strlen(strIn);
-
     if (ReverseString(strIn, strTemp))
     {
+        size_t len = strlen(strIn);
+        
         // ** If odd number, we even it out by adding a zero to the first digit making it a "byte" value format
         if (len % 2 != 0)
         {
