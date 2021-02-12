@@ -5,7 +5,7 @@
 //--------------------------------------------------------------------------------
 /*
 
-// One interesting way to use these two functions is to swap "endianess" of a large hexadecimal string
+// One interesting way to use these two functions is to swap "endianness" of a large hexadecimal string
 
 // Say we have this BIG-endian hex-string: 0xCAFEBABE
 // which in LITTLE-endian becomes: 0xBEBAFECA
@@ -15,21 +15,16 @@
 
 char myHexStr[] = "CAFEBABE"; // or any other hex value that is in a string type (if you have an integer you can try casting it into a string with sprintf)
 
-// ** Create an output string that is big enough to hold our input string
-char str1[255] = { 0 };
 
-// ** Reverse all characters (make string mirrored)
-ReverseString(myHexStr, str1);
+// Create an output string that is big enough to hold our input string
+char outstr[10] = { 0 };
 
+// Now swap endianness
+SwapEndianHexString(myHexStr, outstr);
 
-// ** Create another output string
-char str2[255] = { 0 };
+// Output should now be: BEBAFECA
+printf("EndianSwap:%s\n", outstr);  
 
-// ** Now swap the "endianess"
-SwapStringPair(str1, str2);
-
-// ** Output string, should output: BEBAFECA
-printf("%s", str2);
 
 */
 
@@ -94,4 +89,34 @@ bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 256)
 };
 //--------------------------------------------------------------------------------
 // ** END: Swap each character in a pair
+//--------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------
+// ** Swap Endianness of HEX-string
+//--------------------------------------------------------------------------------
+bool SwapEndianHexString(char *strIn, char *strOut)
+{
+    char strTemp[256] = { 0 };
+
+    size_t len = strlen(strIn);
+
+    if (ReverseString(strIn, strTemp))
+    {
+        // ** If odd number, we even it out by adding a zero to the first digit making it a "byte" value format
+        if (len % 2 != 0)
+        {
+            strcat_s(strTemp, (len * 2) + 2, "0");
+        }
+
+        if (SwapStringPair(strTemp, strOut))
+        {
+            return true;
+        }
+    }
+
+    return false;
+};
+//--------------------------------------------------------------------------------
+// ** END: Swap Endianness of HEX-string
 //--------------------------------------------------------------------------------
