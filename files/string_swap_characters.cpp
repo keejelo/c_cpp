@@ -66,7 +66,7 @@ bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 256)
 
 
 //--------------------------------------------------------------------------------
-// ** Swap each character in a pair with eachother (converts "ab" into "ba")
+// ** Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
 //--------------------------------------------------------------------------------
 bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 256)
 {
