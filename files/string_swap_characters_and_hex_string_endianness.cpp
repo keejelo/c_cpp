@@ -1,20 +1,20 @@
 //--------------------------------------------------------------------------------
-// Swapping whole strings and string characters.
+// Swap characters one-by-one (first-to-last and so on) (mirrored)
+// Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
+// Swap Endianness of HEX-string
 //
 // Author: keejelo
 //--------------------------------------------------------------------------------
 /*
-
-// One interesting way to use these two functions is to swap "endianness" of a large hexadecimal string
-
+// One interesting way to use these functions is to swap "endianness" of a large hexadecimal string
+//
 // Say we have this BIG-endian hex-string: 0xCAFEBABE
 // which in LITTLE-endian becomes: 0xBEBAFECA
-
+//
 // To convert it, start by getting rid of "0x" somehow if the string contains it,
 // then you can do this:
 
 char myHexStr[] = "CAFEBABE"; // or any other hex value that is in a string type (if you have an integer you can try casting it into a string with sprintf)
-
 
 // Create an output string that is big enough to hold our input string
 char outstr[9] = { 0 };
@@ -23,8 +23,7 @@ char outstr[9] = { 0 };
 SwapEndianHexString(myHexStr, outstr);
 
 // Output should now be: BEBAFECA
-printf("EndianSwap:%s\n", outstr);  
-
+printf("EndianSwap:%s\n", outstr);
 
 */
 
