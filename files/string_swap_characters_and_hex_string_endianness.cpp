@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------------------
 // Swap characters one-by-one (first-to-last and so on) (mirrored)
 // Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
-// Swap Endianness of HEX-string
+// Swap Endianness of HEX-string (combines the above functions)
 //
 // Author: keejelo
 //--------------------------------------------------------------------------------
