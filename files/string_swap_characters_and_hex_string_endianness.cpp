@@ -2,6 +2,7 @@
 // Swap characters one-by-one (first-to-last and so on) (mirrored)
 // Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
 // Swap Endianness of HEX-string (combines the above functions to swap endianness)
+// Convert hex-string into a byte array
 //
 // Author: keejelo
 //--------------------------------------------------------------------------------
@@ -30,9 +31,11 @@ printf("EndianSwap:%s\n", outstr);
 
 unsigned int byteArr[255];
 
-for (int i = 0; i < (strlen(myHexStr) / 2); i++)
+HexStringToByteArray(myHexStr, byteArr);
+
+// Print out bytearray values
+for (size_t i = 0; i < (strlen(myHexStr) / 2); i++)
 {
-    sscanf_s(myHexStr + 2 * i, "%02X", &byteArr[i]);
     printf("Bytearray %d: %02X\n", i, byteArr[i]);
 }
 
@@ -131,3 +134,21 @@ bool SwapEndianHexString(char *strIn, char *strOut)
 //--------------------------------------------------------------------------------
 // ** END: Swap Endianness of HEX-string
 //--------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------
+// ** Convert hex-string into a byte array
+//--------------------------------------------------------------------------------
+void HexStringToByteArray(char *hexStr, unsigned int *byteArr)
+{
+    for (size_t i = 0; i < (strlen(hexStr) / 2); i++)
+    {
+        sscanf_s(hexStr + 2 * i, "%02X", &byteArr[i]);
+        //printf("bytearray %d: %02X\n", i, byteArr[i]);
+    }
+};
+//--------------------------------------------------------------------------------
+// ** END: Convert hex-string into a byte array
+//--------------------------------------------------------------------------------
+
+
