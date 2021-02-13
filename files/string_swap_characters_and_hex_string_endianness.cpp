@@ -34,7 +34,7 @@ unsigned char str_len = strlen(myHexStr);
 for (int i = 0; i < (str_len / 2); i++)
 {
     sscanf_s(myHexStr + 2 * i, "%02X", &bytearray[i]);
-    printf("bytearray %d: %02X\n", i, bytearray[i]);
+    printf("Bytearray %d: %02X\n", i, bytearray[i]);
 }
 
 
