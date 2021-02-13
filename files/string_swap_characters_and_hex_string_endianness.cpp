@@ -25,6 +25,19 @@ SwapEndianHexString(myHexStr, outstr);
 // Output should now be: BEBAFECA
 printf("EndianSwap:%s\n", outstr);
 
+
+// If you then want to convert the string into a byte array you can do this:
+
+unsigned int bytearray[255];
+unsigned char str_len = strlen(myHexStr);
+
+for (int i = 0; i < (str_len / 2); i++)
+{
+    sscanf_s(myHexStr + 2 * i, "%02X", &bytearray[i]);
+    printf("bytearray %d: %02X\n", i, bytearray[i]);
+}
+
+
 */
 
 
