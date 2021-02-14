@@ -121,7 +121,7 @@ void HexStringToByteArray(char *hexStr, unsigned int *byteArr)
 
 
 /*
-// EXAMPLE USAGE:
+// EXAMPLE USAGE
 //
 // One interesting way to use these functions is to swap "endianness" of a large hexadecimal string,
 // and then convert that string into a byte array for further processing.
