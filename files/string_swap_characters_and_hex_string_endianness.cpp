@@ -1,4 +1,6 @@
 //--------------------------------------------------------------------------------
+// Some string functions:
+//
 // Swap characters one-by-one (first-to-last and so on) (mirrored)
 // Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
 // Swap Endianness of HEX-string (combines the above functions to swap endianness)
@@ -6,42 +8,6 @@
 //
 // Author: keejelo
 //--------------------------------------------------------------------------------
-/*
-// One interesting way to use these functions is to swap "endianness" of a large hexadecimal string
-//
-// Say we have this BIG-endian hex-string: 0xCAFEBABE
-// which in LITTLE-endian becomes: 0xBEBAFECA
-//
-// To convert it, start by getting rid of "0x" somehow if the string contains it,
-// then you can do this:
-
-char myHexStr[] = "CAFEBABE"; // or any other hex value that is in a string type (if you have an integer you can try casting it into a string with sprintf)
-
-// Create an output string that is big enough to hold our input string
-char outstr[9] = { 0 };
-
-// Now swap endianness
-SwapEndianHexString(myHexStr, outstr);
-
-// Output should now be: BEBAFECA
-printf("EndianSwap:%s\n", outstr);
-
-
-// If you then want to convert the string into a byte array you can do this:
-
-unsigned int byteArr[255];
-
-HexStringToByteArray(myHexStr, byteArr);
-
-// Print out bytearray values
-for (size_t i = 0; i < (strlen(myHexStr) / 2); i++)
-{
-    printf("Bytearray %d: %02X\n", i, byteArr[i]);
-}
-
-
-*/
-
 
 
 //--------------------------------------------------------------------------------
@@ -151,4 +117,57 @@ void HexStringToByteArray(char *hexStr, unsigned int *byteArr)
 // ** END: Convert hex-string into a byte array
 //--------------------------------------------------------------------------------
 
+
+
+
+/*
+// EXAMPLE USAGE:
+//
+// One interesting way to use these functions is to swap "endianness" of a large hexadecimal string,
+// and then convert that string into a byte array for further processing.
+//
+// Say we have this BIG-endian hex-string: 0xCAFEBABE 
+// which in LITTLE-endian becomes: 0xBEBAFECA
+//
+// We can do this:
+
+
+#include <stdio.h>
+
+int main()
+{
+    char myHexStrZeroX[] = "0xCAFEBABE"; // or any other hex value that is in a string type (if you have an integer you can try casting it into a string with sprintf)
+    
+    // Start by getting rid of "0x"  (if the string contains it)
+    char *myHexStr = myHexStrZeroX + 2;
+
+    // .. else if you do not have "0x" at string start, just do:
+    // char myHexStr[] = "CAFEBABE";
+
+    // Create an output string that is big enough to hold our input string
+    char outstr[9] = { 0 };
+
+    // Now swap endianness
+    SwapEndianHexString(myHexStr, outstr);
+
+    // Output should now be: BEBAFECA
+    printf("EndianSwap:%s\n", outstr);
+
+
+    // If you then want to convert the string into a byte array you can do this:
+
+    unsigned int byteArr[255];
+
+    HexStringToByteArray(myHexStr, byteArr);
+
+    // Print out bytearray values one-by-one
+    for (size_t i = 0; i < (strlen(myHexStr) / 2); i++)
+    {
+        printf("Bytearray %d: %02X\n", i, byteArr[i]);
+    }
+
+    return 0;
+};
+
+*/
 
