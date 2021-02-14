@@ -1,12 +1,37 @@
 //--------------------------------------------------------------------------------
 // Some string functions:
 //
-// 1. Swap characters one-by-one (first-to-last and so on) (mirrored)
-// 2. Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
-// 3. Swap Endianness of HEX-string (combines the above functions to swap endianness)
-// 4. Convert hex-string into a byte array
+// 1. Remove all spaces in string
+// 2. Swap characters one-by-one (first-to-last and so on) (mirrored)
+// 3. Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
+// 4. Swap Endianness of HEX-string (combines the above functions to swap endianness)
+// 5. Convert hex-string into a byte array
 //
-// Author: keejelo
+//--------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------
+// ** Remove all spaces in a string
+//--------------------------------------------------------------------------------
+void RemoveSpaces(char *strIn)
+{
+    // To keep track of non-space character count 
+    int count = 0;
+
+    // Traverse the given string. If current character 
+    // is not space, then place it at index 'count++' 
+    for (int i = 0; strIn[i]; i++)
+    {
+        if (strIn[i] != ' ')
+        {
+            strIn[count++] = strIn[i]; // here count is incremented 
+        }
+    }    
+
+    strIn[count] = '\0';
+};
+//--------------------------------------------------------------------------------
+// ** END: Remove all spaces in a string
 //--------------------------------------------------------------------------------
 
 
@@ -73,13 +98,16 @@ bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 256)
 
 
 //--------------------------------------------------------------------------------
-// ** Swap Endianness of HEX-string
+// ** Swap Endianness of hex-string
 //--------------------------------------------------------------------------------
 bool SwapEndianHexString(char *strIn, char *strOut)
 {
     char strTemp[255] = { 0 };
-
-    // ** If string contains "0x" or "0X" we remove it
+    
+    // ** Remove all spaces
+    RemoveSpaces(strIn);
+    
+    // ** If string starts with hex-prefix "0x" or "0X" we remove it
     if (strIn[0] == '0' && (strIn[1] == 'x' || strIn[1] == 'X'))
     {
         strIn += 2;
@@ -104,7 +132,7 @@ bool SwapEndianHexString(char *strIn, char *strOut)
     return false;
 };
 //--------------------------------------------------------------------------------
-// ** END: Swap Endianness of HEX-string
+// ** END: Swap Endianness of hex-string
 //--------------------------------------------------------------------------------
 
 
@@ -113,7 +141,10 @@ bool SwapEndianHexString(char *strIn, char *strOut)
 //--------------------------------------------------------------------------------
 void HexStringToByteArray(char *strIn, unsigned int *byteArr)
 {
-    // ** If string contains "0x" or "0X" we remove it
+    // ** Remove all spaces
+    RemoveSpaces(strIn);
+    
+    // ** If string starts with hex-prefix "0x" or "0X" we remove it
     if (strIn[0] == '0' && (strIn[1] == 'x' || strIn[1] == 'X'))
     {
         strIn += 2;
