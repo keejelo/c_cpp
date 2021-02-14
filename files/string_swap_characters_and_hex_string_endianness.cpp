@@ -13,18 +13,15 @@
 //--------------------------------------------------------------------------------
 // ** Swap characters one-by-one (first-to-last and so on) (mirrored)
 //--------------------------------------------------------------------------------
-bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 256)
-{
-    /*
-    // ** If string contains hex-prefix "0x" we remove it
-    if (strIn[0] == '0' && strIn[1] == 'x')
+bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 256, bool bRemoveHexPrefix = true)
+{    
+    // ** If string contains hex-prefix "0x" we remove it   
+    if (bRemoveHexPrefix && strIn[0] == '0' && strIn[1] == 'x')
     {
         strIn = strIn + 2;
     }
-    */
     
     size_t strInLen = strlen(strIn);
-    
     if (bufferOut < strInLen)
     {
         printf("Error, buffer output size must be greater or equal to string input length.\n");
