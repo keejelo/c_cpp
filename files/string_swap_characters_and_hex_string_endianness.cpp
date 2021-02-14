@@ -16,7 +16,7 @@
 bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 256, bool bRemoveHexPrefix = true)
 {    
     // ** If string contains hex-prefix "0x" we remove it   
-    if (bRemoveHexPrefix && strIn[0] == '0' && strIn[1] == 'x')
+    if (bRemoveHexPrefix && strIn[0] == '0' && (strIn[1] == 'x' || strIn[1] == 'X'))
     {
         strIn = strIn + 2;
     }
