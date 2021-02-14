@@ -131,7 +131,6 @@ void HexStringToByteArray(char *hexStr, unsigned int *byteArr)
 // One interesting way to use these functions is to swap "endianness" of a large hexadecimal string,
 // and then convert that string into a byte array for further processing.
 // This should work for any hex-string length, no matter how long since it deals with a string and not a fixed byte value.
-// So searching for a large hex pattern in a file, memory, buffer etc. should be no problem.
 //
 // Example:
 // Say we have this BIG-endian hex-string: 0xCAFEBABE 
