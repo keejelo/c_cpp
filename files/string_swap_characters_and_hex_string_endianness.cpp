@@ -1,10 +1,10 @@
 //--------------------------------------------------------------------------------
 // Some string functions:
 //
-// Swap characters one-by-one (first-to-last and so on) (mirrored)
-// Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
-// Swap Endianness of HEX-string (combines the above functions to swap endianness)
-// Convert hex-string into a byte array
+// 1. Swap characters one-by-one (first-to-last and so on) (mirrored)
+// 2. Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
+// 3. Swap Endianness of HEX-string (combines the above functions to swap endianness)
+// 4. Convert hex-string into a byte array
 //
 // Author: keejelo
 //--------------------------------------------------------------------------------
