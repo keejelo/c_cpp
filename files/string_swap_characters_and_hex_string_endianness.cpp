@@ -155,23 +155,23 @@ int main()
     char myHexStr[] = "0xCAFEBABE";
 
     // Create an output string that is big enough to hold our input string
-    char outstr[255] = { 0 };
+    char myOutHexStr[255] = { 0 };
 
     // Now swap endianness
-    SwapEndianHexString(myHexStr, outstr);
+    SwapEndianHexString(myHexStr, myOutHexStr);
 
     // Output should now be: BEBAFECA
-    printf("EndianSwap:%s\n", outstr);
+    printf("EndianSwap:%s\n", myOutHexStr);
 
 
     // If you then want to convert that string into a byte array, do this:
 
     unsigned int byteArr[255];
 
-    HexStringToByteArray(outstr, byteArr);
+    HexStringToByteArray(myOutHexStr, byteArr);
 
     // Print out bytearray values one-by-one
-    for (size_t i = 0; i < (strlen(outstr) / 2); i++)
+    for (size_t i = 0; i < (strlen(myOutHexStr) / 2); i++)
     {
         printf("Bytearray %d: %02X\n", i, byteArr[i]);
     }
