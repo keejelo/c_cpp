@@ -13,24 +13,19 @@
 //--------------------------------------------------------------------------------
 // ** Swap characters one-by-one (first-to-last and so on) (mirrored)
 //--------------------------------------------------------------------------------
-bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 256, bool bRemoveHexPrefix = true)
-{    
-    // ** If string contains hex-prefix "0x" we remove it   
-    if (bRemoveHexPrefix && strIn[0] == '0' && (strIn[1] == 'x' || strIn[1] == 'X'))
-    {
-        strIn = strIn + 2;
-    }
-    
-    size_t strInLen = strlen(strIn);
-    if (bufferOut < strInLen)
+bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 256)
+{
+    size_t len = strlen(strIn);
+
+    if (bufferOut < len)
     {
         printf("Error, buffer output size must be greater or equal to string input length.\n");
         return false;
     }
     
-    for (size_t i = 0; i < strInLen; i++)
+    for (size_t i = 0; i < len; i++)
     {
-        strOut[(strInLen - 1) - i] = strIn[i];
+        strOut[(len - 1) - i] = strIn[i];
 
         if (strIn[i] == '\0')
         {
@@ -48,23 +43,23 @@ bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 256, bool
 //--------------------------------------------------------------------------------
 // ** Swap each character in a pair with eachother (converts "abcdef" into "badcfe")
 //--------------------------------------------------------------------------------
-bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 256)
+bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut)
 {
-    size_t strInLen = strlen(strIn);
+    size_t len = strlen(strIn);
 
-    if (bufferOut < strInLen)
+    if (bufferOut < len)
     {
         printf("Error, buffer output size must be greater or equal to string input length.\n");
         return false;
     }
     
-    if (strInLen % 2 != 0)
+    if (len % 2 != 0)
     {
         printf("Error, not possible to swap string pairs as the string length is odd, it must be even.\n");
         return false;
     }
 
-    for (size_t i = 0; i < strInLen; i += 2)
+    for (size_t i = 0; i < len; i += 2)
     {
         strOut[i] = strIn[i + 1];
         strOut[i + 1] = strIn[i];
@@ -82,12 +77,18 @@ bool SwapStringPair(char *strIn, char *strOut, const size_t bufferOut = 256)
 //--------------------------------------------------------------------------------
 bool SwapEndianHexString(char *strIn, char *strOut)
 {
-    char strTemp[256] = { 0 };
+    char strTemp[255] = { 0 };
+
+    // ** If string contains "0x" or "0X" we remove it
+    if (strIn[0] == '0' && (strIn[1] == 'x' || strIn[1] == 'X'))
+    {
+        strIn += 2;
+    }
 
     if (ReverseString(strIn, strTemp))
     {
         size_t len = strlen(strIn);
-        
+
         // ** If odd number, we even it out by adding a zero to the first digit making it a "byte" value format
         if (len % 2 != 0)
         {
@@ -110,11 +111,17 @@ bool SwapEndianHexString(char *strIn, char *strOut)
 //--------------------------------------------------------------------------------
 // ** Convert hex-string into a byte array
 //--------------------------------------------------------------------------------
-void HexStringToByteArray(char *hexStr, unsigned int *byteArr)
+void HexStringToByteArray(char *strIn, unsigned int *byteArr)
 {
-    for (size_t i = 0; i < (strlen(hexStr) / 2); i++)
+    // ** If string contains "0x" or "0X" we remove it
+    if (strIn[0] == '0' && (strIn[1] == 'x' || strIn[1] == 'X'))
     {
-        sscanf_s(hexStr + 2 * i, "%02X", &byteArr[i]);
+        strIn += 2;
+    }
+
+    for (size_t i = 0; i < (strlen(strIn) / 2); i++)
+    {
+        sscanf_s(strIn + 2 * i, "%02X", &byteArr[i]);
         //printf("bytearray %d: %02X\n", i, byteArr[i]);
     }
 };
@@ -143,16 +150,12 @@ void HexStringToByteArray(char *hexStr, unsigned int *byteArr)
 
 int main()
 {
-    char myHexStrZeroX[] = "0xCAFEBABE"; // or any other hex value that is in a string type (if you have an integer you can try casting it into a string with sprintf)
-    
-    // Start by getting rid of "0x"  (if the string contains it)
-    char *myHexStr = myHexStrZeroX + 2;
-
-    // .. else if you do not have "0x" at string start, just do:
-    // char myHexStr[] = "CAFEBABE";
+    // Enter a hex value that is in a string type (if you have an integer you can try casting it into a string with sprintf)
+    // The "0x" will be removed if the string contains it, since it will fail our operation
+    char myHexStr[] = "0xCAFEBABE";
 
     // Create an output string that is big enough to hold our input string
-    char outstr[9] = { 0 };
+    char outstr[255] = { 0 };
 
     // Now swap endianness
     SwapEndianHexString(myHexStr, outstr);
@@ -161,7 +164,7 @@ int main()
     printf("EndianSwap:%s\n", outstr);
 
 
-    // If you then want to convert the string into a byte array you can do this:
+    // If you then want to convert the string into a byte array, do this:
 
     unsigned int byteArr[255];
 
@@ -177,4 +180,3 @@ int main()
 };
 
 */
-
