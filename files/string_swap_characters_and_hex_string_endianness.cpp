@@ -164,14 +164,14 @@ int main()
     printf("EndianSwap:%s\n", outstr);
 
 
-    // If you then want to convert the string into a byte array, do this:
+    // If you then want to convert that string into a byte array, do this:
 
     unsigned int byteArr[255];
 
-    HexStringToByteArray(myHexStr, byteArr);
+    HexStringToByteArray(outstr, byteArr);
 
     // Print out bytearray values one-by-one
-    for (size_t i = 0; i < (strlen(myHexStr) / 2); i++)
+    for (size_t i = 0; i < (strlen(outstr) / 2); i++)
     {
         printf("Bytearray %d: %02X\n", i, byteArr[i]);
     }
