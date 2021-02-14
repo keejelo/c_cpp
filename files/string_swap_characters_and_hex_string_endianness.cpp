@@ -15,8 +15,16 @@
 //--------------------------------------------------------------------------------
 bool ReverseString(char *strIn, char *strOut, const size_t bufferOut = 256)
 {
+    /*
+    // ** If string contains "0x" we remove it
+    if (strIn[0] == '0' && strIn[1] == 'x')
+    {
+        strIn = strIn + 2;
+    }
+    */
+    
     size_t strInLen = strlen(strIn);
-
+    
     if (bufferOut < strInLen)
     {
         printf("Error, buffer output size must be greater or equal to string input length.\n");
