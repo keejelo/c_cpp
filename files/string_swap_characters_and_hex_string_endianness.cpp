@@ -173,9 +173,9 @@ void HexStringToByteArray(char *strIn, unsigned int *byteArr)
 // Example:
 // Say we have this BIG-endian hex-string: 0xCAFEBABE 
 // which in LITTLE-endian becomes: 0xBEBAFECA
-// And we want to convert 0xBEBAFECA into a byte array
+// And we want to convert 0xBEBAFECA into a byte array: '0xBE','0xBA','0xFE','0xCA'
 //
-// Then this is how we can do these things:
+// Then this is how we can do it:
 
 #include <stdio.h>
 
@@ -205,7 +205,7 @@ int main()
     // Print out bytearray values one-by-one
     for (size_t i = 0; i < (strlen(myOutHexStr) / 2); i++)
     {
-        printf("Bytearray %d: %02X\n", i, byteArr[i]);
+        printf("Bytearray %d: 0x%02X\n", i, byteArr[i]);
     }
 
     return 0;
