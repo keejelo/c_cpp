@@ -3,7 +3,7 @@
 */
 
 //--------------------------------------------------------------------------------
-// ** Make human readable byte size
+// ** Make byte size human readable
 //--------------------------------------------------------------------------------
 std::string HumanBytes(unsigned int bytes)
 {
@@ -39,5 +39,5 @@ std::string HumanBytes(unsigned int bytes)
     return buf;
 };
 //--------------------------------------------------------------------------------
-// ** END: Make human readable byte size
+// ** END: Make byte size human readable
 //--------------------------------------------------------------------------------
