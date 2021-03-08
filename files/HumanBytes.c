@@ -21,7 +21,7 @@ std::string HumanBytes(unsigned int bytes)
         count /= 1000;
     }
 
-    char buf[64] = { 0 };
+    char buf[16] = { 0 };
 
     if (count - floor(count) == 0.0)
     {
